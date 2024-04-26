@@ -1,0 +1,355 @@
+<mat-horizontal-stepper>
+  <!-- Step 1 -->
+  <mat-step [stepControl]="personalDetails">
+    <ng-template matStepLabel>Personal Details</ng-template>
+    <div class="container card">
+      <form [formGroup]="personalDetails" class="form mt-6">
+        <!-- Personal details form fields -->
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Patronship Number</mat-label>
+              <input matInput formControlName="patronshipNumber" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill" style="width: 60%">
+              <mat-label>Date Of Birth</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                readonly
+                formControlName="dateOfBirth"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Gender</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+                <mat-option value="other">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Occupation</mat-label>
+              <input matInput formControlName="occupation" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Company</mat-label>
+              <input matInput formControlName="company" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Mobile</mat-label>
+              <input matInput formControlName="mobile" />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="step-actions">
+      <button
+        mat-button
+        matStepperNext
+        class="btn btn-primary"
+        style="float: right"
+      >
+        Next
+      </button>
+    </div>
+  </mat-step>
+
+  <!-- Step 2 -->
+  <mat-step [stepControl]="familyDetails">
+    <ng-template matStepLabel>Family Details</ng-template>
+    <div class="container">
+      <form [formGroup]="familyDetails" class="form">
+        <!-- Family details form fields -->
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Father Name</mat-label>
+              <input matInput formControlName="fatherName" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill" style="width: 60%">
+              <mat-label>Father Date Of Birth</mat-label>
+              <input
+                matInput
+                [matDatepicker]="fatherPicker"
+                readonly
+                formControlName="fatherDateOfBirth"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="fatherPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #fatherPicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Mother Name</mat-label>
+              <input matInput formControlName="motherName" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill" style="width: 60%">
+              <mat-label>Mother Date Of Birth</mat-label>
+              <input
+                matInput
+                [matDatepicker]="motherPicker"
+                readonly
+                formControlName="motherDateOfBirth"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="motherPicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #motherPicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 mb-3">
+            <label>Martial Status</label>
+            <mat-radio-group
+              aria-label="Marital Status"
+              formControlName="maritalStatus"
+              (change)="updateMaritalStatus($event.value)"
+            >
+              <mat-radio-button value="single">Single</mat-radio-button>
+              <mat-radio-button value="married">Married</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="maritalStatus === 'married'">
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Spouse Name</mat-label>
+              <input matInput formControlName="spouseName" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field appearance="fill" style="width: 60%">
+              <mat-label>Spouse Date Of Birth</mat-label>
+              <input
+                matInput
+                [matDatepicker]="spousePicker"
+                readonly
+                formControlName="spouseDOB"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="spousePicker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #spousePicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mb-3">
+            <mat-form-field>
+              <mat-label>Number Of Children</mat-label>
+              <mat-select
+                (selectionChange)="updateChildrenCount($event)"
+                formControlName="childrenCount"
+              >
+                <div *ngFor="let i of [0, 1, 2, 3, 4]">
+                  <mat-option value="{{ i }}">{{ i }}</mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div *ngIf="maritalStatus === 'married'">
+          <div class="row" *ngFor="let i of childrenArray">
+            <div class="col-md-4 mb-3" *ngIf="i !== 0">
+              <mat-form-field appearance="fill">
+                <mat-label>Child-{{ i }} Name</mat-label>
+                <input matInput [formControlName]="'child' + i + '_Name'" />
+              </mat-form-field>
+            </div>
+            <div class="col-md-4 mb-3">
+              <mat-form-field appearance="fill" style="width: 60%">
+                <mat-label>Child-{{ i }} Date Of Birth</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="spousePicker"
+                  readonly
+                  formControlName="'child' + i + '_dob'"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="spousePicker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #spousePicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="step-actions">
+      <button mat-button matStepperPrevious class="btn btn-primary">
+        Back
+      </button>
+      <button
+        mat-button
+        matStepperNext
+        class="btn btn-primary"
+        style="float: right"
+      >
+        Next
+      </button>
+    </div>
+  </mat-step>
+
+  <!-- Step 3 -->
+  <mat-step>
+    <ng-template matStepLabel>Address</ng-template>
+    <form [formGroup]="addressDetails" class="form mt-6" class="card-body">
+      <div class="container card" style="justify-content: center; align-items: center;">
+        <h3><b>Residence Address</b></h3>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Door Number</mat-label>
+              <input matInput formControlName="rDoorNumber" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Street</mat-label>
+              <input matInput formControlName="rStreet" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Landmark</mat-label>
+              <input matInput formControlName="rLandmark" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>District</mat-label>
+              <input matInput formControlName="rDistrict" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Pincode</mat-label>
+              <input matInput formControlName="rPincode" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="rState" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="container card" style="width: 60%; align-items: center;">
+        <div class="row">
+          <h3><b>Work Address</b></h3>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Door Number</mat-label>
+              <input matInput formControlName="wDoorNumber" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Street</mat-label>
+              <input matInput formControlName="wStreet" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Landmark</mat-label>
+              <input matInput formControlName="wLandmark" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>District</mat-label>
+              <input matInput formControlName="wDistrict" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>Pincode</mat-label>
+              <input matInput formControlName="wPincode" />
+            </mat-form-field>
+          </div>
+          <div class="col-md-3 mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="wState" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="step-actions">
+      <button
+        mat-button
+        matStepperPrevious
+        class="btn btn-primary"
+        style="float: left"
+      >
+        Back
+      </button>
+    </div>
+    <button class="btn btn-primary" style="float: right" (click)="btnSubmit()">Submit</button>
+  </mat-step>
+</mat-horizontal-stepper>

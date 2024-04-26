@@ -1,0 +1,24 @@
+.step-content {
+    margin-bottom: 20px;
+    width: 50%;
+    border-radius: 15px;
+    
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mb-3 {
+    margin-bottom: 1rem;
+  }
+  .custom-input {
+    height: 60px; /* Adjust the height as needed */
+    background-color: #ffffff;
+  }
+  
+ 
