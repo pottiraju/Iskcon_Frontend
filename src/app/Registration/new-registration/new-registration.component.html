@@ -3,9 +3,9 @@
   <mat-step [stepControl]="personalDetails">
     <ng-template matStepLabel>Personal Details</ng-template>
     <div class="container card">
-      <form [formGroup]="personalDetails" class="form mt-6">
+      <form [formGroup]="personalDetails" class="form mt-6" style="margin-top:20px">
         <!-- Personal details form fields -->
-        <div class="row">
+        <div class="row ustify-content-center" style="margin-top: 20px;margin-left:8%">
           <div class="col-md-4 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Patronship Number</mat-label>
@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-top: 20px;margin-left:8%">
           <div class="col-md-4 mb-3">
             <mat-form-field appearance="fill" style="width: 60%">
               <mat-label>Date Of Birth</mat-label>
@@ -62,7 +62,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row"style="margin-top: 20px;margin-left:8%">
           <div class="col-md-4 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Company</mat-label>
@@ -89,7 +89,7 @@
         mat-button
         matStepperNext
         class="btn btn-primary"
-        style="float: right"
+        style="float: right;margin-right:79px;margin-top: 20px;border-radius: 15px;"
       >
         Next
       </button>
@@ -99,10 +99,10 @@
   <!-- Step 2 -->
   <mat-step [stepControl]="familyDetails">
     <ng-template matStepLabel>Family Details</ng-template>
-    <div class="container">
-      <form [formGroup]="familyDetails" class="form">
+    <div class="container card">
+      <form [formGroup]="familyDetails" class="form mt-6" style="margin-top:20px">
         <!-- Family details form fields -->
-        <div class="row">
+        <div class="row" style="margin-top: 20px;margin-left:8%;justify-content: center;">
           <div class="col-md-4 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Father Name</mat-label>
@@ -110,7 +110,7 @@
             </mat-form-field>
           </div>
           <div class="col-md-4 mb-3">
-            <mat-form-field appearance="fill" style="width: 60%">
+            <mat-form-field appearance="fill" style="width: 70%;padding: initial;">
               <mat-label>Father Date Of Birth</mat-label>
               <input
                 matInput
@@ -127,7 +127,9 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-top: 20px;
+        margin-left: 8%;
+        justify-content: center;">
           <div class="col-md-4 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Mother Name</mat-label>
@@ -135,7 +137,7 @@
             </mat-form-field>
           </div>
           <div class="col-md-4 mb-3">
-            <mat-form-field appearance="fill" style="width: 60%">
+            <mat-form-field appearance="fill" style="width: 70%;padding: initial;">
               <mat-label>Mother Date Of Birth</mat-label>
               <input
                 matInput
@@ -152,9 +154,12 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="display: flex;
+        align-items: stretch;
+        align-content: space-around;
+        justify-content: flex-end;    padding-left: 100px;">
           <div class="col-md-8 mb-3">
-            <label>Martial Status</label>
+            <label style="margin-top: 9px;"><b>Martial Status</b></label>
             <mat-radio-group
               aria-label="Marital Status"
               formControlName="maritalStatus"
@@ -166,15 +171,15 @@
           </div>
         </div>
 
-        <div class="row" *ngIf="maritalStatus === 'married'">
+        <div class="row" *ngIf="maritalStatus === 'married'" style="margin-left: 100px;">
           <div class="col-md-4 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Spouse Name</mat-label>
               <input matInput formControlName="spouseName" />
             </mat-form-field>
           </div>
-          <div class="col-md-4 mb-3">
-            <mat-form-field appearance="fill" style="width: 60%">
+          <div class="col-md-4 mb-3" style="padding: initial;">
+            <mat-form-field appearance="fill" style="width: 70%">
               <mat-label>Spouse Date Of Birth</mat-label>
               <input
                 matInput
@@ -205,7 +210,9 @@
         </div>
 
         <div *ngIf="maritalStatus === 'married'">
-          <div class="row" *ngFor="let i of childrenArray">
+          <div class="row" *ngFor="let i of childrenArray" style="margin-top: 20px;
+          margin-left: 8%;
+          justify-content: center;">
             <div class="col-md-4 mb-3" *ngIf="i !== 0">
               <mat-form-field appearance="fill">
                 <mat-label>Child-{{ i }} Name</mat-label>
@@ -213,7 +220,7 @@
               </mat-form-field>
             </div>
             <div class="col-md-4 mb-3">
-              <mat-form-field appearance="fill" style="width: 60%">
+              <mat-form-field appearance="fill" style="width: 70%">
                 <mat-label>Child-{{ i }} Date Of Birth</mat-label>
                 <input
                   matInput
@@ -233,14 +240,20 @@
       </form>
     </div>
     <div class="step-actions">
-      <button mat-button matStepperPrevious class="btn btn-primary">
+      <button mat-button matStepperPrevious class="btn btn-primary" style="
+      margin-left: 79px;
+      margin-top: 20px;
+      border-radius: 15px;">
         Back
       </button>
       <button
         mat-button
         matStepperNext
         class="btn btn-primary"
-        style="float: right"
+        style="float: right;
+        margin-left: 81px;
+        margin-top: 20px;
+        border-radius: 15px;"
       >
         Next
       </button>
@@ -251,9 +264,13 @@
   <mat-step>
     <ng-template matStepLabel>Address</ng-template>
     <form [formGroup]="addressDetails" class="form mt-6" class="card-body">
-      <div class="container card" style="justify-content: center; align-items: center;">
-        <h3><b>Residence Address</b></h3>
+      <div class="container card">
         <div class="row">
+            <div class="p-1 rounded" style="background-color: rgb(132 167 199);color: white;">
+              <h2 class="text-center"><b>Residence Address</b></h2>
+            </div>
+        </div>        
+        <div class="row" style="margin-top: 20px;margin-left:8%;justify-content: center;">
           <div class="col-md-3 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Door Number</mat-label>
@@ -273,7 +290,7 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top: 20px;margin-left:8%;justify-content: center;">
           <div class="col-md-3 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>District</mat-label>
@@ -295,9 +312,13 @@
         </div>
       </div>
       <br />
-      <div class="container card" style="width: 60%; align-items: center;">
+      <div class="container card">
         <div class="row">
-          <h3><b>Work Address</b></h3>
+          <div class="p-1 rounded" style="background-color: rgb(132 167 199);color: white;">
+            <h2 class="text-center"><b>Work Address</b></h2>
+          </div>
+      </div>   
+        <div class="row" style="margin-top: 20px;margin-left:8%;justify-content: center;">
           <div class="col-md-3 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>Door Number</mat-label>
@@ -317,7 +338,7 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top: 20px;margin-left:8%;justify-content: center;">
           <div class="col-md-3 mb-3">
             <mat-form-field appearance="fill">
               <mat-label>District</mat-label>
@@ -345,11 +366,16 @@
         mat-button
         matStepperPrevious
         class="btn btn-primary"
-        style="float: left"
+        style="
+        margin-left: 79px;
+        margin-top: 20px;
+        border-radius: 15px;float: left"
       >
         Back
       </button>
     </div>
-    <button class="btn btn-primary" style="float: right" (click)="btnSubmit()">Submit</button>
+    <button class="btn btn-primary" style="float: right;margin-right: 81px;
+    margin-top: 20px;
+    border-radius: 15px;" (click)="btnSubmit()">Submit</button>
   </mat-step>
 </mat-horizontal-stepper>
