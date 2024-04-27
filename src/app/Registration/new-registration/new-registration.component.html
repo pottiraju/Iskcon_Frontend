@@ -1,6 +1,6 @@
 <mat-horizontal-stepper style="margin-top: 20px;">
   <!-- Step 1 -->
-  <mat-step [stepControl]="personalDetails" style="border-radius: 20px;">
+  <mat-step [stepControl]="personalDetails">
     <ng-template matStepLabel>Personal Details</ng-template>
     <div class="container card" style="margin-top: 25px;">
       <form [formGroup]="personalDetails" class="form mt-6" style="margin-top:20px">
@@ -105,7 +105,7 @@
   <!-- Step 2 -->
   <mat-step [stepControl]="familyDetails">
     <ng-template matStepLabel>Family Details</ng-template>
-    <div class="container card" style="margin-top: 30px;">
+    <div class="container card" style="margin-top: 20px;">
       <form [formGroup]="familyDetails" class="form mt-6" style="margin-top:20px">
         <!-- Family details form fields -->
         <div class="row" style="margin-top: 20px;margin-left:2%;justify-content: center;">
@@ -273,10 +273,10 @@
   <mat-step>
     <ng-template matStepLabel>Address</ng-template>
     <form [formGroup]="addressDetails" class="form mt-6" class="card-body">
-      <div class="container card"style="margin-top: 30px;">
-        <div class="row">
+      <div class="container card"style="margin-top: 20px;">
+        <div class="row justify-content-center ">
             <div class="p-1 rounded" style="background-color: rgb(132 167 199);color: white;">
-              <h2 class="text-center"><b>Residence Address</b></h2>
+              <h1 class="text-center">Residence Address</h1>
             </div>
         </div>        
         <div class="row" style="margin-top: 20px;margin-left:2%;justify-content: space-around;">
@@ -322,9 +322,9 @@
       </div>
       <br />
       <div class="container card">
-        <div class="row">
+        <div class="row justify-content-center ">
           <div class="p-1 rounded" style="background-color: rgb(132 167 199);color: white;">
-            <h2 class="text-center"><b>Work Address</b></h2>
+            <h1 class="text-center">Work Address</h1>
           </div>
       </div>   
         <div class="row" style="margin-top: 20px;margin-left:2%;justify-content: space-around;">
