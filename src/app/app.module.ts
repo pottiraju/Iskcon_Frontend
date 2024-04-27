@@ -7,7 +7,7 @@ import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import {MatIconModule} from '@angular/material/icon'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewRegistrationComponent } from './Registration/new-registration/new-registration.component';
@@ -29,7 +29,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatDatepicker,
     MatSelectModule,
     MatRadioModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(),
