@@ -78,7 +78,7 @@ border-radius: 0 0 15px 15px;
   width: max-content !important;
 }
 ::ng-deep .mat-step-header.cdk-keyboard-focused,
-::ng-deep .mat-warn.mat-step-header.cdk-program-focused
+::ng-deep .mat-step-header.cdk-program-focused
 {
   background-color: rgb(37, 123, 203);
   color: #000;
