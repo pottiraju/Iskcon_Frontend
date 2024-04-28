@@ -7,10 +7,14 @@
   
   .form {
     width: 100%;
+    font-family: sans-serif;
+
   }
   
   .mat-form-field {
     width: 100%;
+    font-family: sans-serif;
+
   }
   
   .mb-3 {
@@ -19,6 +23,8 @@
   .custom-input {
     height: 60px; /* Adjust the height as needed */
     background-color: #ffffff;
+    font-family: sans-serif;
+
   }
   
     .btn {
@@ -29,10 +35,10 @@
   }
 
 .btn-primary {
-    background-color: #007bff; 
+    background-color: #8e54e9;
+ 
     color: #fff; 
 }
-
 .btn-primary:hover {
     background:linear-gradient( to right,#fe03b4,#ee0202); 
 }
@@ -96,6 +102,6 @@ border-radius: 0 0 15px 15px;
 ::ng-deep .mat-datepicker-content .mat-calendar-next-button,
 ::ng-deep .mat-datepicker-content .mat-calendar-previous-button
 {
-  color: #ff06b8 !important;
+  color: #8e54e9!important;
 }
  
